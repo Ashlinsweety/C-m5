@@ -39,7 +39,47 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+
+// Call by Value
+void swapByValue(int x, int y) {
+    int temp = x;
+    x = y;
+    y = temp;
+    printf("Inside swapByValue: x = %d, y = %d\n", x, y);
+}
+
+// Call by Reference
+void swapByReference(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+    printf("Inside swapByReference: x = %d, y = %d\n", *x, *y);
+}
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    printf("\nOriginal values: a = %d, b = %d\n", a, b);
+
+    // Call by Value
+    swapByValue(a, b);
+    printf("After swapByValue (in main): a = %d, b = %d\n", a, b);
+
+    // Call by Reference
+    swapByReference(&a, &b);
+    printf("After swapByReference (in main): a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+```
+
 # Output:
+<img width="635" height="411" alt="image" src="https://github.com/user-attachments/assets/23a085f2-9d5d-4651-a00d-e8b99b7b1fb5" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +117,41 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+// Recursive function to calculate Fibonacci number
+int fibonacci(int num) {
+    if (num == 0)
+        return 0;
+    else if (num == 1)
+        return 1;
+    else
+        return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+int main() {
+    int n, i;
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    if(n <= 0) {
+        printf("Please enter a positive integer.\n");
+        return 0;
+    }
+
+    printf("Fibonacci Series: ");
+    for(i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
+    }
+    printf("\n");
+
+    return 0;
+}
+```
 # Output:
+<img width="630" height="364" alt="image" src="https://github.com/user-attachments/assets/771d6588-9950-492e-880e-4344ad8000ee" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +193,35 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+// Recursive function to print sequence
+void printSeq(int lower, int upper) {
+    if (lower > upper) {
+        return;  // base case
+    }
+    printf("%d ", lower);
+    printSeq(lower + 2, upper);  // recursive call progressing by 2
+}
+
+int main() {
+    int lower, upper;
+    printf("Enter lower limit: ");
+    scanf("%d", &lower);
+    printf("Enter upper limit: ");
+    scanf("%d", &upper);
+
+    printf("Sequence: ");
+    printSeq(lower, upper);
+
+    printf("\n");
+    return 0;
+}
+```
 # Output:
+<img width="634" height="513" alt="image" src="https://github.com/user-attachments/assets/90a3a81c-37bc-45ef-a490-b0d4b8b4706c" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +263,42 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, i, sum = 0;
+    int *ptr;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    // Dynamic memory allocation using calloc
+    ptr = (int*) calloc(n, sizeof(int));
+
+    if(ptr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 0;
+    }
+
+    printf("Enter %d integers:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &ptr[i]);
+        sum += ptr[i];
+    }
+
+    printf("Sum of elements = %d\n", sum);
+
+    // Free allocated memory
+    free(ptr);
+
+    return 0;
+}
+```
 # Output:
+<img width="642" height="450" alt="image" src="https://github.com/user-attachments/assets/3aa05a4b-9aa0-4832-8d48-b32356b55ba1" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +334,39 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+// User-defined function to display array elements
+void display(int arr[], int n) {
+    int i;
+    printf("Array elements are: ");
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n, i;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];  // array declaration
+
+    printf("Enter %d integers:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Call user-defined function
+    display(arr, n);
+
+    return 0;
+}
+```
 # Output:
+<img width="620" height="528" alt="image" src="https://github.com/user-attachments/assets/10f4ae98-73ff-4962-b344-9e07db14632e" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
